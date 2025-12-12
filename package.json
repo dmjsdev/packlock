@@ -1,6 +1,6 @@
 {
   "name": "@dmjsdev/packlock",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Visualize npm dependency graph with package sizes and security vulnerabilities",
   "main": "index.js",
   "bin": {

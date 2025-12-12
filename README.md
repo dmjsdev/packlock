@@ -10,9 +10,9 @@ Visualize your npm dependency graph with package sizes and security vulnerabilit
 ## Installation
 
 ```bash
-npm install -D packlock
+npm install -D @dmjsdev/packlock
 # or globally
-npm install -g packlock
+npm install -g @dmjsdev/packlock
 ```
 
 ## Usage

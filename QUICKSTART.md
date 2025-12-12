@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-npm install -D packlock
+npm install -D @dmjsdev/packlock
 ```
 
 ## Run

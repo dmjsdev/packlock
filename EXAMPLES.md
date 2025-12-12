@@ -15,7 +15,7 @@ npx packlock --no-open
 
 ### Global installation
 ```bash
-npm install -g packlock
+npm install -g @dmjsdev/packlock
 cd your-project
 packlock
 ```
