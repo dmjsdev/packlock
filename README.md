@@ -2,6 +2,11 @@
 
 Visualize your npm dependency graph with package sizes and security vulnerabilities.
 
+<div align="center">
+  <img src="assets/screenshot.png" alt="PackLock Visualization" width="45%">
+  <img src="assets/screenshot-2.png" alt="PackLock Details" width="45%">
+</div>
+
 ## Installation
 
 ```bash
