@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2024-12-13
+
+### Fixed
+- **PNPM parser**: Added support for pnpm-lock.yaml v9 `snapshots` section where actual dependencies are stored
+- **PNPM parser**: Fixed scoped packages parsing - now correctly preserves full names like `@eslint/js` instead of truncating to `js`
+- **PNPM parser**: Fixed dependency name parsing to remove quotes from scoped package names (e.g., `'@scope/package'` → `@scope/package`)
+- **YARN parser**: Added support for reading `devDependencies` from package.json
+- **YARN parser**: Fixed multiple alias handling - packages like `mime-types@^2.1.12, mime-types@~2.1.24` are now correctly stored as single entry `mime-types`
+- **YARN parser**: Fixed scoped packages support in dependency parsing regex
+- **YARN parser**: Fixed lockfile path resolution to use directory of yarn.lock instead of cwd
+- **Graph builder**: Added cycle detection with `processedDeps` Set to prevent infinite recursion on circular dependencies
+- **Graph completeness**: PNPM now includes all 174 packages in graph (was 154), YARN now includes all 174 packages (was 78)
+
 ## [0.2.0] - 2024-12-12
 
 ### Added
