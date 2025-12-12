@@ -12,19 +12,36 @@ async function main() {
   console.log('🔍 Analyzing project dependencies...\n');
 
   const cwd = process.cwd();
-  const lockfilePath = path.join(cwd, 'package-lock.json');
   const nodeModulesPath = path.join(cwd, 'node_modules');
   const outputDir = path.join(cwd, '.packlock');
 
-  // Check if package-lock.json exists
-  if (!fs.existsSync(lockfilePath)) {
-    console.error('❌ Error: package-lock.json not found in current directory');
+  // Detect lockfile (priority: package-lock.json > pnpm-lock.yaml > yarn.lock)
+  let lockfilePath = null;
+  let lockfileType = null;
+
+  const packageLock = path.join(cwd, 'package-lock.json');
+  const pnpmLock = path.join(cwd, 'pnpm-lock.yaml');
+  const yarnLock = path.join(cwd, 'yarn.lock');
+
+  if (fs.existsSync(packageLock)) {
+    lockfilePath = packageLock;
+    lockfileType = 'npm';
+  } else if (fs.existsSync(pnpmLock)) {
+    lockfilePath = pnpmLock;
+    lockfileType = 'pnpm';
+  } else if (fs.existsSync(yarnLock)) {
+    lockfilePath = yarnLock;
+    lockfileType = 'yarn';
+  } else {
+    console.error('❌ Error: No lockfile found (package-lock.json, pnpm-lock.yaml, or yarn.lock)');
     process.exit(1);
   }
 
+  console.log(`📦 Using ${lockfileType} lockfile\n`);
+
   // Check if node_modules exists
   if (!fs.existsSync(nodeModulesPath)) {
-    console.error('❌ Error: node_modules not found. Run npm install first.');
+    console.error('❌ Error: node_modules not found. Run npm/pnpm/yarn install first.');
     process.exit(1);
   }
 
