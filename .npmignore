@@ -1,0 +1,7 @@
+test-project/
+test-vulnerable/
+.git/
+.DS_Store
+*.log
+.packlock/
+node_modules/

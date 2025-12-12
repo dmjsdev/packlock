@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Package Lock Visualization</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📦 PackLock</h1>
+      <div class="controls">
+        <div class="filter-group">
+          <label>Show:</label>
+          <button id="filter-all" class="btn active">All</button>
+          <button id="filter-deps" class="btn">Dependencies</button>
+          <button id="filter-dev" class="btn">DevDependencies</button>
+        </div>
+        <div class="search-group">
+          <input type="text" id="search" placeholder="Search packages..." />
+        </div>
+      </div>
+      <div class="stats">
+        <span id="stats-packages">Packages: 0</span>
+        <span id="stats-size">Total Size: 0 B</span>
+        <span id="stats-vulnerable">Vulnerable: 0</span>
+      </div>
+    </header>
+
+    <div class="canvas-container">
+      <canvas id="graph-canvas"></canvas>
+    </div>
+
+    <aside id="details-panel" class="details-panel hidden">
+      <button class="close-btn" id="close-details">&times;</button>
+      <h2 id="detail-name">Package Name</h2>
+      <div class="detail-content">
+        <p><strong>Version:</strong> <span id="detail-version"></span></p>
+        <p><strong>Size:</strong> <span id="detail-size"></span></p>
+        <p><strong>Type:</strong> <span id="detail-type"></span></p>
+        <p><strong>Security:</strong> <span class="security-badge" id="detail-security"></span></p>
+        <div id="detail-vulnerabilities"></div>
+        <div id="detail-dependencies" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #334155;">
+          <p><strong>Dependencies Tree Size:</strong></p>
+          <p id="detail-tree-size" style="font-size: 1.25rem; color: #3b82f6; margin-top: 0.5rem;"></p>
+        </div>
+      </div>
+    </aside>
+
+    <div class="legend">
+      <h3>Legend</h3>
+      <div class="legend-item">
+        <span class="legend-color" style="background: #22c55e;"></span>
+        <span>No vulnerabilities</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-color" style="background: #eab308;"></span>
+        <span>Low severity</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-color" style="background: #f97316;"></span>
+        <span>Moderate/High</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-color" style="background: #ef4444;"></span>
+        <span>Critical</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

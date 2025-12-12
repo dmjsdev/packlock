@@ -1,0 +1,49 @@
+{
+  "name": "packlock",
+  "version": "0.1.0",
+  "description": "Visualize npm dependency graph with package sizes and security vulnerabilities",
+  "main": "index.js",
+  "bin": {
+    "packlock": "./bin/packlock.js"
+  },
+  "scripts": {
+    "test": "cd test-project && node ../bin/packlock.js --no-open"
+  },
+  "keywords": [
+    "npm",
+    "dependencies",
+    "visualization",
+    "graph",
+    "audit",
+    "security",
+    "package-lock",
+    "node_modules",
+    "canvas",
+    "interactive",
+    "size",
+    "vulnerabilities",
+    "force-directed",
+    "dependency-tree"
+  ],
+  "author": "dm.js.dev@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmjsdev/packlock.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dmjsdev/packlock/issues"
+  },
+  "homepage": "https://github.com/dmjsdev/packlock#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "templates/",
+    "index.js",
+    "README.md",
+    "DEVELOPMENT.md"
+  ]
+}
